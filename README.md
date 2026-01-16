@@ -411,6 +411,43 @@ http://localhost:5173
 
 ---
 
+## 🐳 Docker Deployment
+
+### Quick Start with Docker
+
+**Prerequisites**: Docker Desktop installed
+
+```bash
+# 1. Clone and navigate to project
+git clone https://github.com/yourusername/multi-modal-rag.git
+cd multi-modal-rag
+
+# 2. Create .env file
+cp .env.example .env
+# Edit .env and add your GROQ_API_KEY
+
+# 3. Build and run with Docker Compose
+docker-compose up --build
+
+# Access the application
+# Frontend: http://localhost
+# Backend: http://localhost:8000
+# API Docs: http://localhost:8000/docs
+```
+
+### Docker Deployment Options
+
+| Platform | Docker Support | Best For |
+|----------|---------------|----------|
+| **Railway** | ✅ Auto-detects Dockerfile | Full-stack apps (Recommended) |
+| **Render** | ✅ Native Docker support | Production deployments |
+| **Fly.io** | ✅ Docker-first platform | Global deployment |
+| **Vercel** | ❌ No Docker support | Frontend only |
+
+**See [DOCKER_DEPLOYMENT.md](DOCKER_DEPLOYMENT.md) for detailed instructions**
+
+---
+
 ## 🔄 Workflow
 
 ### Document Processing Pipeline
@@ -497,47 +534,5 @@ sequenceDiagram
 
 ---
 
-## 🎨 UI Components
-
-### Component Hierarchy
-
-```
-App
-├── Header
-│   ├── Logo
-│   ├── Navigation Pills
-│   │   ├── Upload Tab
-│   │   ├── Processing Tab
-│   │   └── Chat Tab
-│   └── Clear Session Button
-│
-├── Main Content
-│   ├── Upload Section
-│   │   ├── File Uploader
-│   │   └── Upload Progress
-│   │
-│   ├── Processing Display
-│   │   ├── Progress Bars
-│   │   ├── Stage Indicators
-│   │   └── Status Messages
-│   │
-│   └── Chat Interface
-│       ├── Chat Header
-│       ├── Messages Container
-│       │   ├── User Messages
-│       │   ├── Assistant Messages
-│       │   ├── Table Display
-│       │   └── Image Display
-│       └── Input Form
-│
-└── Footer
-    └── Credits
-```
-
----
-
-<div align="center">
 
 
-
-</div>

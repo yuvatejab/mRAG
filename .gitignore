@@ -61,3 +61,13 @@ logs/
 data/
 *.db
 *.sqlite
+
+# Docker
+uploads/
+chroma_data/
+
+# Keep Docker configuration files (these should be committed)
+!Dockerfile
+!docker-compose.yml
+!.dockerignore
+!nginx.conf
