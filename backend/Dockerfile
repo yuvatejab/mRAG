@@ -10,7 +10,8 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_DEFAULT_TIMEOUT=100 \
     TESSERACT_PATH=/usr/bin/tesseract \
-    POPPLER_PATH=/usr/bin
+    POPPLER_PATH=/usr/bin \
+    ORT_DISABLE_STACK_PROTECTION=1
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -22,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     g++ \
     libgl1 \
     libglib2.0-0 \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip first
