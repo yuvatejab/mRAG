@@ -4,12 +4,12 @@ import { ProcessingProgress } from '../../types';
 
 interface ProcessingDisplayProps {
   progress: ProcessingProgress | null;
-  onBackToUpload: () => void;
+  onBackToUpload?: () => void;
 }
 
 type Section = 'upload' | 'partitioning' | 'chunking' | 'vectorization';
 
-export default function ProcessingDisplay({ progress, onBackToUpload }: ProcessingDisplayProps) {
+export default function ProcessingDisplay({ progress }: ProcessingDisplayProps) {
   const [activeSection, setActiveSection] = useState<Section>('upload');
   const [expandedChunks, setExpandedChunks] = useState<Set<number>>(new Set());
 
