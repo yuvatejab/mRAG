@@ -4,7 +4,7 @@ services:
     name: multimodal-rag-backend
     runtime: python
     plan: free
-    buildCommand: bash backend/render_build.sh && pip install -r backend/requirements.txt
+    buildCommand: pip install -r backend/requirements.txt
     startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: GROQ_API_KEY
