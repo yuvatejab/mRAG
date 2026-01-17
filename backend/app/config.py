@@ -15,7 +15,12 @@ class Settings(BaseSettings):
     DEBUG: bool = False
     
     # Security
-    ALLOWED_ORIGINS: List[str] = ["http://localhost:5173", "http://localhost:3000"]
+    ALLOWED_ORIGINS: List[str] = [
+        "http://localhost:5173", 
+        "http://localhost:3000",
+        "https://multimodal-rag-frontend.onrender.com",
+        "https://multimodal-rag-backend.onrender.com"
+    ]
     
     # API Keys
     GROQ_API_KEY: str
@@ -31,9 +36,9 @@ class Settings(BaseSettings):
     # ChromaDB
     CHROMA_PERSIST_DIR: Path = Path("./chroma_data")
     
-    # System Dependencies
-    TESSERACT_PATH: str = r"C:\Program Files\Tesseract-OCR"
-    POPPLER_PATH: str = r"C:\Program Files\poppler\poppler-25.12.0\Library\bin"
+    # System Dependencies (cross-platform)
+    TESSERACT_PATH: str = os.getenv("TESSERACT_PATH", r"C:\Program Files\Tesseract-OCR" if os.name == 'nt' else "/usr/bin")
+    POPPLER_PATH: str = os.getenv("POPPLER_PATH", r"C:\Program Files\poppler\poppler-25.12.0\Library\bin" if os.name == 'nt' else "/usr/bin")
     
     # Processing
     CHUNK_MAX_CHARS: int = 3000
